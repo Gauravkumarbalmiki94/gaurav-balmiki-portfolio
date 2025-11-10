@@ -4,38 +4,161 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gaurav Kumar Balmiki | Biotechnology × AI Fusion</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header>
-    <h1>Gaurav Kumar Balmiki</h1>
-    <p>Biotechnology Postgraduate | QC Officer | AI Enthusiast</p>
-  </header>
-
   <section id="hero">
-    <img src="assets/ai.jpg" alt="AI Robotics">
-<img src="assets/microbiology.jpg" alt="Microbiology">
-<img src="assets/chemistry.jpg" alt="Chemistry">
-    <div class="overlay"></div>
-    <div class="hero-text">
-      <h2>Where Microbes, Molecules, and Machines Meet</h2>
-      <a href="mailto:gaurav9610209831@gmail.com">Request Resume</a>
-      <a href="#skills">Explore Skills</a>
+    <div class="hero-bg"></div>
+    <div class="particles"></div>
+    <div class="hero-content">
+      <h1 class="glitch" data-text="Gaurav Kumar Balmiki">Gaurav Kumar Balmiki</h1>
+      <h2 class="tagline">Where Microbes, Molecules, and Machines Meet</h2>
+      <p class="subtitle">Biotechnology × AI Fusion</p>
+      <div class="cta-buttons">
+        <a href="#skills" class="btn-primary">Explore Skills</a>
+        <a href="#contact" class="btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
     </div>
   </section>
 
   <section id="skills">
-    <h2>Skills & Expertise</h2>
-    <ul>
-      <li>Microbiology — Sterility testing, colony identification</li>
-      <li>Chemistry — HPLC, UV-Vis, QC methods</li>
-      <li>AI & Automation — Machine learning, Data analysis</li>
-    </ul>
+    <div class="section-header">
+      <h2>Skills & Expertise</h2>
+      <div class="neon-line"></div>
+    </div>
+    
+    <div class="skill-grid">
+      <div class="skill-card" data-skill="microbiology">
+        <div class="skill-bg" style="background-image: url('microbiology.jpg');"></div>
+        <div class="skill-overlay"></div>
+        <div class="skill-content">
+          <div class="skill-icon">🦠</div>
+          <h3>Microbiology</h3>
+          <ul>
+            <li>Sterility Testing & Validation</li>
+            <li>Colony Identification & Analysis</li>
+            <li>Aseptic Techniques</li>
+            <li>Quality Control Testing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="skill-card" data-skill="chemistry">
+        <div class="skill-bg" style="background-image: url('chemistry.jpg');"></div>
+        <div class="skill-overlay"></div>
+        <div class="skill-content">
+          <div class="skill-icon">⚗️</div>
+          <h3>Chemistry</h3>
+          <ul>
+            <li>HPLC Analysis</li>
+            <li>UV-Vis Spectroscopy</li>
+            <li>QC Methods Development</li>
+            <li>Pharmaceutical Analysis</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="skill-card" data-skill="ai">
+        <div class="skill-bg" style="background-image: url('ai.jpg');"></div>
+        <div class="skill-overlay"></div>
+        <div class="skill-content">
+          <div class="skill-icon">🤖</div>
+          <h3>AI & Automation</h3>
+          <ul>
+            <li>Machine Learning Models</li>
+            <li>Data Analysis & Visualization</li>
+            <li>Process Automation</li>
+            <li>Predictive Analytics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-header">
+      <h2>Let's Connect</h2>
+      <div class="neon-line"></div>
+    </div>
+    
+    <div class="contact-container">
+      <div class="contact-intro">
+        <p>Interested in collaborating on biotechnology innovations or AI-driven solutions? Let's build the future together.</p>
+      </div>
+      
+      <div class="contact-methods">
+        <a href="mailto:gaurav9610209831@gmail.com" class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <h3>Email</h3>
+          <p>gaurav9610209831@gmail.com</p>
+        </a>
+        
+        <a href="https://www.linkedin.com/in/gaurav-balmiki-425468311" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon">💼</div>
+          <h3>LinkedIn</h3>
+          <p>Connect with me</p>
+        </a>
+      </div>
+    </div>
   </section>
 
   <footer>
-    ⚡ Crafted by Gaurav Balmiki — Biotechnology × AI Fusion ⚡
+    <div class="footer-content">
+      <p>⚡ Crafted by Gaurav Balmiki — Biotechnology × AI Fusion ⚡</p>
+      <div class="footer-glow"></div>
+    </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.skill-card, .contact-card, .section-header').forEach(el => {
+        observer.observe(el);
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      const createParticle = () => {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        particle.style.animationDelay = Math.random() * 2 + 's';
+        document.querySelector('.particles').appendChild(particle);
+        
+        setTimeout(() => particle.remove(), 5000);
+      };
+
+      setInterval(createParticle, 300);
+    });
+  </script>
 </body>
 </html>
